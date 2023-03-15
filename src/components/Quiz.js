@@ -41,6 +41,7 @@ function Quiz(props) {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                padding: '15px'
             }}><Button variant="contained" onClick={props.nextQuestion}>Next</Button></div>
         </CSSTransitionGroup>
     );

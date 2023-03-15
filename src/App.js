@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {get_quiz} from './api/quizQuestions';
 import Quiz from './components/Quiz';
-import Result from './components/Result';
 import logo from './logo.png';
 import './App.css';
-import PropTypes from 'prop-types';
 
 class App extends Component {
     constructor(props) {
@@ -30,6 +28,7 @@ class App extends Component {
         let q = get_quiz()
         const shuffledAnswerOptions = q.answers
         this.setState({
+            ...this.state,
             question: q.question,
             answerOptions: shuffledAnswerOptions,
             right_answer: q.right_answer
@@ -102,7 +101,7 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo"  style={{borderRadius:'100%'}}/>
+                    <img src={logo} className="App-logo" alt="logo" style={{borderRadius: '100%'}}/>
                     <h2>Mkhedruli quiz</h2>
                 </div>
                 {this.renderQuiz()}
