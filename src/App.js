@@ -25,6 +25,7 @@ class App extends Component {
     }
 
     componentDidMount() {
+
         let q = get_quiz()
         const shuffledAnswerOptions = q.answers
         this.setState({
@@ -33,10 +34,15 @@ class App extends Component {
             answerOptions: shuffledAnswerOptions,
             right_answer: q.right_answer
         });
+
     }
 
     handleAnswerSelected(event) {
         this.setUserAnswer(event.currentTarget.value);
+        console.log(event.currentTarget.value)
+        if (this.state.right_answer === event.currentTarget.value) {
+            setTimeout(()=>this.nextQuestion(), 400)
+        }
     }
 
     nextQuestion() {
