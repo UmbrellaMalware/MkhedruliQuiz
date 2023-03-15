@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {get_quiz} from './api/quizQuestions';
 import Quiz from './components/Quiz';
-import logo from './logo.png';
+import logo from './logo-round.png';
 import './App.css';
 
 class App extends Component {
@@ -101,7 +101,10 @@ class App extends Component {
         return (
             <div className="App">
                 <div className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" style={{borderRadius: '100%'}}/>
+                    <img src={logo} className="App-logo" alt="logo" style={{
+                          maxWidth: '100%',
+                          height: 'auto'
+                    }}/>
                     <h2>Mkhedruli quiz</h2>
                 </div>
                 {this.renderQuiz()}
