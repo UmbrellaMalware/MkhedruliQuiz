@@ -48,9 +48,11 @@ class App extends Component {
     nextQuestion() {
         let answers = this.state.answerOptions
         for (let i = 0; i < answers.length; i++) {
-            let element = document.getElementById(answers[i].type).parentElement.children[1]
+            let checkbox = document.getElementById(answers[i].type)
+            let element = checkbox.parentElement.children[1]
             element.style.backgroundColor = 'white'
             element.checked = false
+            checkbox.disabled = false
 
         }
         let q = get_quiz()
@@ -67,10 +69,12 @@ class App extends Component {
         let answers = this.state.answerOptions
         let chosen = event.target.value
         for (let i = 0; i < answers.length; i++) {
-            let element = document.getElementById(answers[i].type).parentElement.children[1]
-            let value = document.getElementById(answers[i].type).parentElement.children[0].value
-            element.style.backgroundColor = 'white'
+            let checkbox = document.getElementById(answers[i].type)
+            let element = checkbox.parentElement.children[1]
+            let value = checkbox.parentElement.children[0].value
             element.checked = false
+            checkbox.disabled = true
+            console.log(element)
             if (chosen !== this.state.right_answer && value === chosen) {
                 element.style.backgroundColor = 'red'
             }
